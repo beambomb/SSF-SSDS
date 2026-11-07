@@ -1,0 +1,23 @@
+# Large Dataset Files (>50MB / GitHub hard limit 100MB)
+data_pendukung/data_lingkungan.csv
+data_pendukung/HydroRIVERS_v10_au_shp/
+*.zip
+*.tar.gz
+
+# Generated Submission Files
+submission_*.csv
+
+# Python & Jupyter Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Environments & OS
+.env
+.venv/
+env/
+venv/
+Thumbs.db
+.DS_Store

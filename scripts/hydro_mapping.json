@@ -1,0 +1,152 @@
+{
+    "Ketonggo": {
+        "UPLAND_SKM": 21.5,
+        "DIS_AV_CMS": 0.658,
+        "ORD_STRA": 1
+    },
+    "Sekayu": {
+        "UPLAND_SKM": 800.9,
+        "DIS_AV_CMS": 30.149,
+        "ORD_STRA": 4
+    },
+    "Cepu": {
+        "UPLAND_SKM": 10926.8,
+        "DIS_AV_CMS": 352.11,
+        "ORD_STRA": 6
+    },
+    "Karanggeneng": {
+        "UPLAND_SKM": 15087.4,
+        "DIS_AV_CMS": 442.477,
+        "ORD_STRA": 6
+    },
+    "Bojonegoro - Kali Kethek": {
+        "UPLAND_SKM": 12778.1,
+        "DIS_AV_CMS": 387.983,
+        "ORD_STRA": 6
+    },
+    "Badegan": {
+        "UPLAND_SKM": 244.3,
+        "DIS_AV_CMS": 8.624,
+        "ORD_STRA": 4
+    },
+    "Lorog": {
+        "UPLAND_SKM": 47.6,
+        "DIS_AV_CMS": 1.777,
+        "ORD_STRA": 3
+    },
+    "Wonogiri Dam": {
+        "UPLAND_SKM": 1344.7,
+        "DIS_AV_CMS": 47.568,
+        "ORD_STRA": 4
+    },
+    "Kajangan": {
+        "UPLAND_SKM": 5492.4,
+        "DIS_AV_CMS": 185.525,
+        "ORD_STRA": 5
+    },
+    "Boboh Kali Lamong": {
+        "UPLAND_SKM": 519.7,
+        "DIS_AV_CMS": 16.171,
+        "ORD_STRA": 4
+    },
+    "Kali Anyar - Kreteg Abang": {
+        "UPLAND_SKM": 426.7,
+        "DIS_AV_CMS": 15.949,
+        "ORD_STRA": 3
+    },
+    "Colo Weir": {
+        "UPLAND_SKM": 1569.1,
+        "DIS_AV_CMS": 54.787,
+        "ORD_STRA": 4
+    },
+    "Ngadipiro": {
+        "UPLAND_SKM": 406.6,
+        "DIS_AV_CMS": 14.145,
+        "ORD_STRA": 3
+    },
+    "Bengkelolor": {
+        "UPLAND_SKM": 4.9,
+        "DIS_AV_CMS": 0.15,
+        "ORD_STRA": 1
+    },
+    "Ngrembang": {
+        "UPLAND_SKM": 5.7,
+        "DIS_AV_CMS": 0.21,
+        "ORD_STRA": 1
+    },
+    "Karangnongko": {
+        "UPLAND_SKM": 10032.6,
+        "DIS_AV_CMS": 330.184,
+        "ORD_STRA": 6
+    },
+    "Kali Pepe - Tugu Boto": {
+        "UPLAND_SKM": 24.9,
+        "DIS_AV_CMS": 0.896,
+        "ORD_STRA": 2
+    },
+    "Kedungupit": {
+        "UPLAND_SKM": 22.8,
+        "DIS_AV_CMS": 0.771,
+        "ORD_STRA": 1
+    },
+    "Brangkal": {
+        "UPLAND_SKM": 801.6,
+        "DIS_AV_CMS": 17.096,
+        "ORD_STRA": 4
+    },
+    "Kali Pepe - PTPN": {
+        "UPLAND_SKM": 7.0,
+        "DIS_AV_CMS": 0.245,
+        "ORD_STRA": 1
+    },
+    "Babat": {
+        "UPLAND_SKM": 14342.2,
+        "DIS_AV_CMS": 428.018,
+        "ORD_STRA": 6
+    },
+    "Napel": {
+        "UPLAND_SKM": 9838.8,
+        "DIS_AV_CMS": 329.639,
+        "ORD_STRA": 6
+    },
+    "Peren": {
+        "UPLAND_SKM": 205.3,
+        "DIS_AV_CMS": 6.934,
+        "ORD_STRA": 3
+    },
+    "Jurug": {
+        "UPLAND_SKM": 11.3,
+        "DIS_AV_CMS": 0.387,
+        "ORD_STRA": 1
+    },
+    "Jarum": {
+        "UPLAND_SKM": 638.1,
+        "DIS_AV_CMS": 23.14,
+        "ORD_STRA": 4
+    },
+    "Gunungsari": {
+        "UPLAND_SKM": 593.4,
+        "DIS_AV_CMS": 21.482,
+        "ORD_STRA": 4
+    },
+    "Sumberrejo": {
+        "UPLAND_SKM": 31.1,
+        "DIS_AV_CMS": 0.771,
+        "ORD_STRA": 2
+    },
+    "Floodway Bridge C": {
+        "UPLAND_SKM": 8.1,
+        "DIS_AV_CMS": 0.2,
+        "ORD_STRA": 1
+    },
+    "Arjowinangun - Pacitan": {
+        "UPLAND_SKM": 642.9,
+        "DIS_AV_CMS": 23.231,
+        "ORD_STRA": 4
+    },
+    "Serenan": {
+        "UPLAND_SKM": 2477.8,
+        "DIS_AV_CMS": 86.578,
+        "ORD_STRA": 5
+    }
+}

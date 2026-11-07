@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d155da003f96939c39acb2da009dce12 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d155da003f96939c39acb2da009dce12" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d155da003f96939c39acb2da009dce12 = L.map(
+                "map_d155da003f96939c39acb2da009dce12",
+                {
+                    center: [-7.4, 111.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_23199059991bb93a835d65b65fbc4951 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_23199059991bb93a835d65b65fbc4951.addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+    var color_map_1b0e76aaa7603cea2a245f971b850649 = {};
+
+    
+    color_map_1b0e76aaa7603cea2a245f971b850649.color = d3.scale.threshold()
+              .domain([1.1164780409268877, 1.4019416029918568, 1.6874051650568258, 1.9728687271217948, 2.2583322891867637, 2.543795851251733, 2.829259413316702, 3.114722975381671, 3.40018653744664, 3.6856500995116095, 3.9711136615765783, 4.256577223641547, 4.542040785706517, 4.827504347771486, 5.112967909836454, 5.398431471901423, 5.683895033966392, 5.969358596031362, 6.254822158096331, 6.540285720161299, 6.825749282226268, 7.111212844291238, 7.396676406356206, 7.6821399684211755, 7.967603530486145, 8.253067092551115, 8.538530654616084, 8.823994216681053, 9.109457778746021, 9.39492134081099, 9.680384902875959, 9.965848464940928, 10.251312027005897, 10.536775589070867, 10.822239151135836, 11.107702713200805, 11.393166275265774, 11.678629837330742, 11.964093399395711, 12.24955696146068, 12.535020523525649, 12.82048408559062, 13.105947647655588, 13.391411209720557, 13.676874771785524, 13.962338333850495, 14.247801895915464, 14.533265457980432, 14.818729020045403, 15.104192582110372, 15.38965614417534, 15.67511970624031, 15.96058326830528, 16.246046830370247, 16.531510392435216, 16.816973954500185, 17.102437516565157, 17.387901078630126, 17.673364640695095, 17.958828202760063, 18.244291764825032, 18.52975532689, 18.81521888895497, 19.10068245101994, 19.386146013084907, 19.671609575149876, 19.95707313721485, 20.242536699279817, 20.528000261344786, 20.813463823409755, 21.098927385474724, 21.384390947539693, 21.66985450960466, 21.95531807166963, 22.2407816337346, 22.526245195799568, 22.811708757864537, 23.097172319929506, 23.382635881994474, 23.668099444059443, 23.953563006124412, 24.239026568189384, 24.524490130254353, 24.809953692319322, 25.09541725438429, 25.38088081644926, 25.66634437851423, 25.951807940579197, 26.237271502644163, 26.522735064709135, 26.808198626774104, 27.093662188839073, 27.37912575090404, 27.66458931296901, 27.95005287503398, 28.235516437098948, 28.52097999916392, 28.80644356122889, 29.091907123293858, 29.377370685358827, 29.662834247423795, 29.948297809488764, 30.233761371553733, 30.519224933618702, 30.804688495683674, 31.09015205774864, 31.37561561981361, 31.661079181878577, 31.946542743943546, 32.232006306008515, 32.51746986807348, 32.80293343013845, 33.08839699220342, 33.37386055426839, 33.65932411633336, 33.94478767839833, 34.230251240463296, 34.515714802528265, 34.801178364593234, 35.0866419266582, 35.37210548872317, 35.65756905078814, 35.94303261285311, 36.228496174918085, 36.51395973698305, 36.79942329904802, 37.084886861112984, 37.37035042317796, 37.65581398524292, 37.94127754730789, 38.22674110937286, 38.51220467143783, 38.797668233502804, 39.083131795567766, 39.36859535763274, 39.654058919697704, 39.93952248176268, 40.22498604382764, 40.51044960589262, 40.795913167957586, 41.081376730022555, 41.366840292087524, 41.65230385415249, 41.93776741621746, 42.22323097828243, 42.5086945403474, 42.79415810241237, 43.07962166447734, 43.365085226542305, 43.650548788607274, 43.93601235067224, 44.22147591273721, 44.50693947480218, 44.79240303686716, 45.07786659893212, 45.363330160997094, 45.648793723062056, 45.93425728512703, 46.219720847191994, 46.50518440925697, 46.79064797132193, 47.0761115333869, 47.361575095451876, 47.64703865751684, 47.932502219581814, 48.217965781646775, 48.50342934371175, 48.78889290577671, 49.07435646784169, 49.35982002990666, 49.645283591971626, 49.930747154036595, 50.216210716101564, 50.50167427816653, 50.7871378402315, 51.07260140229647, 51.35806496436143, 51.64352852642641, 51.92899208849138, 52.214455650556346, 52.499919212621315, 52.78538277468628, 53.07084633675125, 53.35630989881622, 53.64177346088119, 53.927237022946166, 54.21270058501113, 54.4981641470761, 54.783627709141065, 55.06909127120604, 55.354554833271, 55.64001839533598, 55.92548195740095, 56.21094551946591, 56.496409081530885, 56.78187264359585, 57.06733620566082, 57.352799767725784, 57.63826332979076, 57.92372689185572, 58.2091904539207, 58.49465401598567, 58.780117578050636, 59.065581140115604, 59.35104470218057, 59.63650826424554, 59.92197182631051, 60.20743538837548, 60.492898950440456, 60.77836251250542, 61.063826074570386, 61.349289636635355, 61.634753198700324, 61.92021676076529, 62.20568032283026, 62.49114388489524, 62.7766074469602, 63.062071009025175, 63.34753457109014, 63.63299813315511, 63.918461695220074, 64.20392525728505, 64.48938881935001, 64.77485238141499, 65.06031594347996, 65.34577950554493, 65.6312430676099, 65.91670662967486, 66.20217019173984, 66.4876337538048, 66.77309731586978, 67.05856087793475, 67.34402443999971, 67.62948800206468, 67.91495156412965, 68.20041512619463, 68.48587868825959, 68.77134225032455, 69.05680581238953, 69.3422693744545, 69.62773293651946, 69.91319649858444, 70.1986600606494, 70.48412362271436, 70.76958718477934, 71.05505074684432, 71.34051430890929, 71.62597787097424, 71.91144143303922, 72.19690499510419, 72.48236855716917, 72.76783211923411, 73.05329568129909, 73.33875924336407, 73.62422280542904, 73.909686367494, 74.19514992955897, 74.48061349162394, 74.7660770536889, 75.05154061575388, 75.33700417781884, 75.62246773988382, 75.90793130194878, 76.19339486401375, 76.47885842607873, 76.76432198814369, 77.04978555020865, 77.33524911227363, 77.6207126743386, 77.90617623640358, 78.19163979846853, 78.4771033605335, 78.76256692259848, 79.04803048466344, 79.3334940467284, 79.61895760879338, 79.90442117085836, 80.18988473292332, 80.4753482949883, 80.76081185705326, 81.04627541911823, 81.3317389811832, 81.61720254324817, 81.90266610531313, 82.1881296673781, 82.47359322944307, 82.75905679150804, 83.04452035357302, 83.32998391563798, 83.61544747770294, 83.90091103976792, 84.1863746018329, 84.47183816389786, 84.75730172596282, 85.0427652880278, 85.32822885009277, 85.61369241215773, 85.8991559742227, 86.18461953628767, 86.47008309835265, 86.75554666041761, 87.04101022248258, 87.32647378454755, 87.61193734661252, 87.89740090867748, 88.18286447074246, 88.46832803280743, 88.75379159487238, 89.03925515693736, 89.32471871900233, 89.61018228106731, 89.89564584313226, 90.18110940519723, 90.46657296726221, 90.75203652932719, 91.03750009139215, 91.32296365345711, 91.60842721552208, 91.89389077758706, 92.17935433965202, 92.46481790171698, 92.75028146378196, 93.03574502584692, 93.3212085879119, 93.60667214997687, 93.89213571204183, 94.1775992741068, 94.46306283617177, 94.74852639823675, 95.03398996030172, 95.31945352236667, 95.60491708443165, 95.89038064649662, 96.1758442085616, 96.46130777062655, 96.74677133269152, 97.0322348947565, 97.31769845682146, 97.60316201888644, 97.8886255809514, 98.17408914301637, 98.45955270508134, 98.74501626714631, 99.03047982921127, 99.31594339127625, 99.60140695334121, 99.88687051540619, 100.17233407747116, 100.45779763953612, 100.74326120160109, 101.02872476366606, 101.31418832573104, 101.59965188779599, 101.88511544986096, 102.17057901192594, 102.45604257399091, 102.74150613605588, 103.02696969812084, 103.31243326018581, 103.59789682225079, 103.88336038431575, 104.16882394638073, 104.45428750844569, 104.73975107051066, 105.02521463257563, 105.3106781946406, 105.59614175670556, 105.88160531877054, 106.1670688808355, 106.45253244290048, 106.73799600496545, 107.0234595670304, 107.30892312909538, 107.59438669116035, 107.87985025322533, 108.16531381529028, 108.45077737735525, 108.73624093942023, 109.0217045014852, 109.30716806355017, 109.59263162561513, 109.8780951876801, 110.16355874974508, 110.44902231181004, 110.73448587387502, 111.01994943593998, 111.30541299800494, 111.59087656006992, 111.87634012213489, 112.16180368419985, 112.44726724626481, 112.73273080832979, 113.01819437039477, 113.30365793245974, 113.58912149452469, 113.87458505658967, 114.16004861865464, 114.44551218071962, 114.73097574278457, 115.01643930484954, 115.30190286691452, 115.58736642897948, 115.87282999104445, 116.15829355310942, 116.44375711517439, 116.72922067723935, 117.01468423930433, 117.3001478013693, 117.58561136343427, 117.87107492549923, 118.1565384875642, 118.44200204962918, 118.72746561169414, 119.0129291737591, 119.29839273582408, 119.58385629788906, 119.86931985995403, 120.15478342201898, 120.44024698408396, 120.72571054614893, 121.0111741082139, 121.29663767027886, 121.58210123234383, 121.8675647944088, 122.15302835647377, 122.43849191853874, 122.7239554806037, 123.00941904266868, 123.29488260473364, 123.58034616679862, 123.8658097288636, 124.15127329092856, 124.43673685299352, 124.7222004150585, 125.00766397712347, 125.29312753918842, 125.5785911012534, 125.86405466331837, 126.14951822538335, 126.43498178744831, 126.72044534951327, 127.00590891157825, 127.29137247364322, 127.57683603570818, 127.86229959777314, 128.14776315983812, 128.43322672190308, 128.71869028396804, 129.00415384603303, 129.289617408098, 129.57508097016296, 129.86054453222792, 130.1460080942929, 130.43147165635787, 130.71693521842283, 131.00239878048782, 131.28786234255278, 131.57332590461775, 131.8587894666827, 132.1442530287477, 132.42971659081266, 132.71518015287762, 133.0006437149426, 133.28610727700757, 133.57157083907254, 133.8570344011375, 134.14249796320246, 134.42796152526742, 134.7134250873324, 134.99888864939737, 135.28435221146236, 135.56981577352732, 135.8552793355923, 136.14074289765728, 136.4262064597222, 136.71167002178717, 136.99713358385216, 137.28259714591712, 137.5680607079821, 137.85352427004707, 138.13898783211204, 138.42445139417703, 138.709914956242, 138.99537851830695, 139.2808420803719, 139.56630564243687, 139.85176920450184, 140.13723276656683, 140.4226963286318, 140.70815989069678, 140.99362345276174, 141.2790870148267, 141.5645505768917, 141.85001413895662, 142.13547770102159, 142.42094126308658, 142.70640482515154, 142.9918683872165, 143.2773319492815, 143.56279551134645])
+              .range(['#0000ffff', '#0001ffff', '#0003ffff', '#0004ffff', '#0006ffff', '#0007ffff', '#0009ffff', '#000affff', '#000cffff', '#000dffff', '#000fffff', '#0010ffff', '#0012ffff', '#0014ffff', '#0015ffff', '#0017ffff', '#0018ffff', '#001affff', '#001bffff', '#001dffff', '#001effff', '#0020ffff', '#0021ffff', '#0023ffff', '#0024ffff', '#0026ffff', '#0028ffff', '#0029ffff', '#002bffff', '#002cffff', '#002effff', '#002fffff', '#0031ffff', '#0032ffff', '#0034ffff', '#0035ffff', '#0037ffff', '#0038ffff', '#003affff', '#003cffff', '#003dffff', '#003fffff', '#0040ffff', '#0042ffff', '#0043ffff', '#0045ffff', '#0046ffff', '#0048ffff', '#0049ffff', '#004bffff', '#004cffff', '#004effff', '#0050ffff', '#0051ffff', '#0053ffff', '#0054ffff', '#0056ffff', '#0057ffff', '#0059ffff', '#005affff', '#005cffff', '#005dffff', '#005fffff', '#0060ffff', '#0062ffff', '#0064ffff', '#0065ffff', '#0067ffff', '#0068ffff', '#006affff', '#006bffff', '#006dffff', '#006effff', '#0070ffff', '#0071ffff', '#0073ffff', '#0074ffff', '#0076ffff', '#0078ffff', '#0079ffff', '#007bffff', '#007cffff', '#007effff', '#007fffff', '#0081ffff', '#0082ffff', '#0084ffff', '#0085ffff', '#0087ffff', '#0088ffff', '#008affff', '#008cffff', '#008dffff', '#008fffff', '#0090ffff', '#0092ffff', '#0093ffff', '#0095ffff', '#0096ffff', '#0098ffff', '#0099ffff', '#009bffff', '#009cffff', '#009effff', '#00a0ffff', '#00a1ffff', '#00a3ffff', '#00a4ffff', '#00a6ffff', '#00a7ffff', '#00a9ffff', '#00aaffff', '#00acffff', '#00adffff', '#00afffff', '#00b0ffff', '#00b2ffff', '#00b4ffff', '#00b5ffff', '#00b7ffff', '#00b8ffff', '#00baffff', '#00bbffff', '#00bdffff', '#00beffff', '#00c0ffff', '#00c1ffff', '#00c3ffff', '#00c5ffff', '#00c6ffff', '#00c8ffff', '#00c9ffff', '#00cbffff', '#00ccffff', '#00ceffff', '#00cfffff', '#00d1ffff', '#00d2ffff', '#00d4ffff', '#00d5ffff', '#00d7ffff', '#00d9ffff', '#00daffff', '#00dcffff', '#00ddffff', '#00dfffff', '#00e0ffff', '#00e2ffff', '#00e3ffff', '#00e5ffff', '#00e6ffff', '#00e8ffff', '#00e9ffff', '#00ebffff', '#00edffff', '#00eeffff', '#00f0ffff', '#00f1ffff', '#00f3ffff', '#00f4ffff', '#00f6ffff', '#00f7ffff', '#00f9ffff', '#00faffff', '#00fcffff', '#00fdffff', '#00ffffff', '#01fffeff', '#02fffdff', '#04fffbff', '#05fffaff', '#07fff8ff', '#08fff7ff', '#0afff5ff', '#0bfff4ff', '#0dfff2ff', '#0efff1ff', '#10ffefff', '#11ffeeff', '#13ffecff', '#15ffeaff', '#16ffe9ff', '#18ffe7ff', '#19ffe6ff', '#1bffe4ff', '#1cffe3ff', '#1effe1ff', '#1fffe0ff', '#21ffdeff', '#22ffddff', '#24ffdbff', '#25ffdaff', '#27ffd8ff', '#29ffd6ff', '#2affd5ff', '#2cffd3ff', '#2dffd2ff', '#2fffd0ff', '#30ffcfff', '#32ffcdff', '#33ffccff', '#35ffcaff', '#36ffc9ff', '#38ffc7ff', '#39ffc6ff', '#3bffc4ff', '#3dffc2ff', '#3effc1ff', '#40ffbfff', '#41ffbeff', '#43ffbcff', '#44ffbbff', '#46ffb9ff', '#47ffb8ff', '#49ffb6ff', '#4affb5ff', '#4cffb3ff', '#4dffb2ff', '#4fffb0ff', '#51ffaeff', '#52ffadff', '#54ffabff', '#55ffaaff', '#57ffa8ff', '#58ffa7ff', '#5affa5ff', '#5bffa4ff', '#5dffa2ff', '#5effa1ff', '#60ff9fff', '#61ff9eff', '#63ff9cff', '#65ff9aff', '#66ff99ff', '#68ff97ff', '#69ff96ff', '#6bff94ff', '#6cff93ff', '#6eff91ff', '#6fff90ff', '#71ff8eff', '#72ff8dff', '#74ff8bff', '#75ff8aff', '#77ff88ff', '#79ff86ff', '#7aff85ff', '#7cff83ff', '#7dff82ff', '#7fff80ff', '#80ff7fff', '#82ff7dff', '#83ff7cff', '#85ff7aff', '#86ff79ff', '#88ff77ff', '#8aff75ff', '#8bff74ff', '#8dff72ff', '#8eff71ff', '#90ff6fff', '#91ff6eff', '#93ff6cff', '#94ff6bff', '#96ff69ff', '#97ff68ff', '#99ff66ff', '#9aff65ff', '#9cff63ff', '#9eff61ff', '#9fff60ff', '#a1ff5eff', '#a2ff5dff', '#a4ff5bff', '#a5ff5aff', '#a7ff58ff', '#a8ff57ff', '#aaff55ff', '#abff54ff', '#adff52ff', '#aeff51ff', '#b0ff4fff', '#b2ff4dff', '#b3ff4cff', '#b5ff4aff', '#b6ff49ff', '#b8ff47ff', '#b9ff46ff', '#bbff44ff', '#bcff43ff', '#beff41ff', '#bfff40ff', '#c1ff3eff', '#c2ff3dff', '#c4ff3bff', '#c6ff39ff', '#c7ff38ff', '#c9ff36ff', '#caff35ff', '#ccff33ff', '#cdff32ff', '#cfff30ff', '#d0ff2fff', '#d2ff2dff', '#d3ff2cff', '#d5ff2aff', '#d6ff29ff', '#d8ff27ff', '#daff25ff', '#dbff24ff', '#ddff22ff', '#deff21ff', '#e0ff1fff', '#e1ff1eff', '#e3ff1cff', '#e4ff1bff', '#e6ff19ff', '#e7ff18ff', '#e9ff16ff', '#eaff15ff', '#ecff13ff', '#eeff11ff', '#efff10ff', '#f1ff0eff', '#f2ff0dff', '#f4ff0bff', '#f5ff0aff', '#f7ff08ff', '#f8ff07ff', '#faff05ff', '#fbff04ff', '#fdff02ff', '#feff01ff', '#ffff00ff', '#fffd00ff', '#fffc00ff', '#fffa00ff', '#fff900ff', '#fff700ff', '#fff600ff', '#fff400ff', '#fff300ff', '#fff100ff', '#fff000ff', '#ffee00ff', '#ffed00ff', '#ffeb00ff', '#ffe900ff', '#ffe800ff', '#ffe600ff', '#ffe500ff', '#ffe300ff', '#ffe200ff', '#ffe000ff', '#ffdf00ff', '#ffdd00ff', '#ffdc00ff', '#ffda00ff', '#ffd900ff', '#ffd700ff', '#ffd500ff', '#ffd400ff', '#ffd200ff', '#ffd100ff', '#ffcf00ff', '#ffce00ff', '#ffcc00ff', '#ffcb00ff', '#ffc900ff', '#ffc800ff', '#ffc600ff', '#ffc500ff', '#ffc300ff', '#ffc100ff', '#ffc000ff', '#ffbe00ff', '#ffbd00ff', '#ffbb00ff', '#ffba00ff', '#ffb800ff', '#ffb700ff', '#ffb500ff', '#ffb400ff', '#ffb200ff', '#ffb000ff', '#ffaf00ff', '#ffad00ff', '#ffac00ff', '#ffaa00ff', '#ffa900ff', '#ffa700ff', '#ffa600ff', '#ffa400ff', '#ffa300ff', '#ffa100ff', '#ffa000ff', '#ff9e00ff', '#ff9c00ff', '#ff9b00ff', '#ff9900ff', '#ff9800ff', '#ff9600ff', '#ff9500ff', '#ff9300ff', '#ff9200ff', '#ff9000ff', '#ff8f00ff', '#ff8d00ff', '#ff8c00ff', '#ff8a00ff', '#ff8800ff', '#ff8700ff', '#ff8500ff', '#ff8400ff', '#ff8200ff', '#ff8100ff', '#ff7f00ff', '#ff7e00ff', '#ff7c00ff', '#ff7b00ff', '#ff7900ff', '#ff7800ff', '#ff7600ff', '#ff7400ff', '#ff7300ff', '#ff7100ff', '#ff7000ff', '#ff6e00ff', '#ff6d00ff', '#ff6b00ff', '#ff6a00ff', '#ff6800ff', '#ff6700ff', '#ff6500ff', '#ff6400ff', '#ff6200ff', '#ff6000ff', '#ff5f00ff', '#ff5d00ff', '#ff5c00ff', '#ff5a00ff', '#ff5900ff', '#ff5700ff', '#ff5600ff', '#ff5400ff', '#ff5300ff', '#ff5100ff', '#ff5000ff', '#ff4e00ff', '#ff4c00ff', '#ff4b00ff', '#ff4900ff', '#ff4800ff', '#ff4600ff', '#ff4500ff', '#ff4300ff', '#ff4200ff', '#ff4000ff', '#ff3f00ff', '#ff3d00ff', '#ff3c00ff', '#ff3a00ff', '#ff3800ff', '#ff3700ff', '#ff3500ff', '#ff3400ff', '#ff3200ff', '#ff3100ff', '#ff2f00ff', '#ff2e00ff', '#ff2c00ff', '#ff2b00ff', '#ff2900ff', '#ff2800ff', '#ff2600ff', '#ff2400ff', '#ff2300ff', '#ff2100ff', '#ff2000ff', '#ff1e00ff', '#ff1d00ff', '#ff1b00ff', '#ff1a00ff', '#ff1800ff', '#ff1700ff', '#ff1500ff', '#ff1400ff', '#ff1200ff', '#ff1000ff', '#ff0f00ff', '#ff0d00ff', '#ff0c00ff', '#ff0a00ff', '#ff0900ff', '#ff0700ff', '#ff0600ff', '#ff0400ff', '#ff0300ff', '#ff0100ff', '#ff0000ff']);
+    
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.x = d3.scale.linear()
+              .domain([1.1164780409268877, 143.56279551134645])
+              .range([0, 450 - 50]);
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.legend = L.control({position: 'topright'});
+    color_map_1b0e76aaa7603cea2a245f971b850649.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_1b0e76aaa7603cea2a245f971b850649.legend.addTo(map_d155da003f96939c39acb2da009dce12);
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.xAxis = d3.svg.axis()
+        .scale(color_map_1b0e76aaa7603cea2a245f971b850649.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1.1164780409268877, 48.59858386440007, 96.08068968787326, 143.56279551134645]);
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.g = color_map_1b0e76aaa7603cea2a245f971b850649.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.g.selectAll("rect")
+        .data(color_map_1b0e76aaa7603cea2a245f971b850649.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_1b0e76aaa7603cea2a245f971b850649.x(color_map_1b0e76aaa7603cea2a245f971b850649.color.domain()[i - 1]) : color_map_1b0e76aaa7603cea2a245f971b850649.x.range()[0],
+            x1: i < color_map_1b0e76aaa7603cea2a245f971b850649.color.domain().length ? color_map_1b0e76aaa7603cea2a245f971b850649.x(color_map_1b0e76aaa7603cea2a245f971b850649.color.domain()[i]) : color_map_1b0e76aaa7603cea2a245f971b850649.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_1b0e76aaa7603cea2a245f971b850649.g.call(color_map_1b0e76aaa7603cea2a245f971b850649.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("Elevasi (Meter di atas permukaan laut)");
+    
+            ant_path_b7e70e0aa04f7b20da28217eb4871dfe = L.polyline.antPath(
+              [[-7.4241, 111.4495], [-7.376188, 111.464305]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_b7e70e0aa04f7b20da28217eb4871dfe.bindTooltip(
+                `<div>
+                     Aliran dari Ketonggo ke Napel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_01a5d971bb37a77e84ad1485abbc4888 = L.polyline.antPath(
+              [[-7.86520004, 111.4479], [-8.196982, 111.341354]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_01a5d971bb37a77e84ad1485abbc4888.bindTooltip(
+                `<div>
+                     Aliran dari Sekayu ke Lorog
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_b5a4e2ed0953e52b54954469dc2e34d2 = L.polyline.antPath(
+              [[-7.1483, 111.5986], [-7.0847, 111.8492]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_b5a4e2ed0953e52b54954469dc2e34d2.bindTooltip(
+                `<div>
+                     Aliran dari Cepu ke Brangkal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_916add5e4fb69aaa95ed47ffec917fd2 = L.polyline.antPath(
+              [[-7.13680318, 111.89776287], [-7.0672, 112.0177]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_916add5e4fb69aaa95ed47ffec917fd2.bindTooltip(
+                `<div>
+                     Aliran dari Bojonegoro - Kali Kethek ke Sumberrejo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_7cbc8a4492362000c58a554579cbda43 = L.polyline.antPath(
+              [[-7.8849, 111.3275], [-7.86520004, 111.4479]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_7cbc8a4492362000c58a554579cbda43.bindTooltip(
+                `<div>
+                     Aliran dari Badegan ke Sekayu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_b475ffee5ba5587f1f12abf2a56ac071 = L.polyline.antPath(
+              [[-8.196982, 111.341354], [-8.137219, 111.137746]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_b475ffee5ba5587f1f12abf2a56ac071.bindTooltip(
+                `<div>
+                     Aliran dari Lorog ke Gunungsari
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_3b5699efd7e885b63c8d3b51ee5ac887 = L.polyline.antPath(
+              [[-7.838796329, 110.9254908], [-7.751307, 110.901425]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_3b5699efd7e885b63c8d3b51ee5ac887.bindTooltip(
+                `<div>
+                     Aliran dari Wonogiri Dam ke Colo Weir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_81703f75f2335a4b300d5ebc46e3aa65 = L.polyline.antPath(
+              [[-7.365744, 111.235721], [-7.4241, 111.4495]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_81703f75f2335a4b300d5ebc46e3aa65.bindTooltip(
+                `<div>
+                     Aliran dari Kajangan ke Ketonggo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_c132c37ccb4801b106b50d15266d43d8 = L.polyline.antPath(
+              [[-7.2504, 112.5623], [-6.9896, 112.3688]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_c132c37ccb4801b106b50d15266d43d8.bindTooltip(
+                `<div>
+                     Aliran dari Boboh Kali Lamong ke Karanggeneng
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_740a26252eae78ca66a0f88e24c4af36 = L.polyline.antPath(
+              [[-7.553596, 110.833859], [-7.56637609940404, 110.830243130438]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_740a26252eae78ca66a0f88e24c4af36.bindTooltip(
+                `<div>
+                     Aliran dari Kali Anyar - Kreteg Abang ke Kali Pepe - PTPN
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_d685b18ee239b5ba9fb382771ed32fbd = L.polyline.antPath(
+              [[-7.751307, 110.901425], [-7.641, 110.8448]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_d685b18ee239b5ba9fb382771ed32fbd.bindTooltip(
+                `<div>
+                     Aliran dari Colo Weir ke Peren
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_a37db28d9fa1c1ac9741c8ae68a5e545 = L.polyline.antPath(
+              [[-7.876715, 110.991808], [-7.838796329, 110.9254908]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_a37db28d9fa1c1ac9741c8ae68a5e545.bindTooltip(
+                `<div>
+                     Aliran dari Ngadipiro ke Wonogiri Dam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_380181c8bc78a1f73e72d715c8b2f160 = L.polyline.antPath(
+              [[-7.2659, 112.5016], [-7.2504, 112.5623]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_380181c8bc78a1f73e72d715c8b2f160.bindTooltip(
+                `<div>
+                     Aliran dari Bengkelolor ke Boboh Kali Lamong
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_081559da47e41c8b691d996c145c6aa5 = L.polyline.antPath(
+              [[-8.0244, 110.948], [-7.838796329, 110.9254908]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_081559da47e41c8b691d996c145c6aa5.bindTooltip(
+                `<div>
+                     Aliran dari Ngrembang ke Wonogiri Dam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_25ee02d26b4885fd1c5b53501c634b17 = L.polyline.antPath(
+              [[-7.25358903, 111.48798163], [-7.1483, 111.5986]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_25ee02d26b4885fd1c5b53501c634b17.bindTooltip(
+                `<div>
+                     Aliran dari Karangnongko ke Cepu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_5b403f35be58ad388bfb9b076556df41 = L.polyline.antPath(
+              [[-7.530054, 110.793742], [-7.553596, 110.833859]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_5b403f35be58ad388bfb9b076556df41.bindTooltip(
+                `<div>
+                     Aliran dari Kali Pepe - Tugu Boto ke Kali Anyar - Kreteg Abang
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_a8d16a7a9c4c50fe88504d72cd30aa45 = L.polyline.antPath(
+              [[-7.373851, 111.005016], [-7.365744, 111.235721]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_a8d16a7a9c4c50fe88504d72cd30aa45.bindTooltip(
+                `<div>
+                     Aliran dari Kedungupit ke Kajangan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_a21fb011b3f5db7e0946ab4593213d32 = L.polyline.antPath(
+              [[-7.0847, 111.8492], [-7.13680318, 111.89776287]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_a21fb011b3f5db7e0946ab4593213d32.bindTooltip(
+                `<div>
+                     Aliran dari Brangkal ke Bojonegoro - Kali Kethek
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_a9b835e7cf5e3174890fd88003c77c04 = L.polyline.antPath(
+              [[-7.56637609940404, 110.830243130438], [-7.5667, 110.861]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_a9b835e7cf5e3174890fd88003c77c04.bindTooltip(
+                `<div>
+                     Aliran dari Kali Pepe - PTPN ke Jurug
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_83a26ac3bf195d5529ca8ac4fc437c94 = L.polyline.antPath(
+              [[-7.110837, 112.154488], [-6.964196, 112.276556]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_83a26ac3bf195d5529ca8ac4fc437c94.bindTooltip(
+                `<div>
+                     Aliran dari Babat ke Floodway Bridge C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_cd27f08b69542a476237c1bc6036eaa2 = L.polyline.antPath(
+              [[-7.376188, 111.464305], [-7.25358903, 111.48798163]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_cd27f08b69542a476237c1bc6036eaa2.bindTooltip(
+                `<div>
+                     Aliran dari Napel ke Karangnongko
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_2021610346b213a5ddc167e478e45b1e = L.polyline.antPath(
+              [[-7.641, 110.8448], [-7.6705, 110.78]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_2021610346b213a5ddc167e478e45b1e.bindTooltip(
+                `<div>
+                     Aliran dari Peren ke Serenan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_4470ac529459c3cc1fd202574c83fc24 = L.polyline.antPath(
+              [[-7.5667, 110.861], [-7.373851, 111.005016]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_4470ac529459c3cc1fd202574c83fc24.bindTooltip(
+                `<div>
+                     Aliran dari Jurug ke Kedungupit
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_620c0c32ef61d1df44ac945b07c03614 = L.polyline.antPath(
+              [[-7.7337, 110.7571], [-7.6705, 110.78]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_620c0c32ef61d1df44ac945b07c03614.bindTooltip(
+                `<div>
+                     Aliran dari Jarum ke Serenan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_6037d0580823ca4dbe2bce36945c0932 = L.polyline.antPath(
+              [[-8.137219, 111.137746], [-8.19756104, 111.11431399]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_6037d0580823ca4dbe2bce36945c0932.bindTooltip(
+                `<div>
+                     Aliran dari Gunungsari ke Arjowinangun - Pacitan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_313b16ac957abfcf809279c7e0234113 = L.polyline.antPath(
+              [[-7.0672, 112.0177], [-7.110837, 112.154488]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_313b16ac957abfcf809279c7e0234113.bindTooltip(
+                `<div>
+                     Aliran dari Sumberrejo ke Babat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_f3786d6685a37da207a4f13b5f34a22b = L.polyline.antPath(
+              [[-6.964196, 112.276556], [-6.9896, 112.3688]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_f3786d6685a37da207a4f13b5f34a22b.bindTooltip(
+                `<div>
+                     Aliran dari Floodway Bridge C ke Karanggeneng
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_e044b243192d7723270d33711af66999 = L.polyline.antPath(
+              [[-7.6705, 110.78], [-7.56637609940404, 110.830243130438]],
+              {
+  "stroke": true,
+  "color": "blue",
+  "weight": 4,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "cyan",
+}
+        ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            ant_path_e044b243192d7723270d33711af66999.bindTooltip(
+                `<div>
+                     Aliran dari Serenan ke Kali Pepe - PTPN
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ef542323c4403968afef34bef5a36a0 = L.circleMarker(
+                [-7.4241, 111.4495],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00c4ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_e309211d7b58b5fb4c4e081f27200225 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b5a68416e14fc415d437de8d645609b = $(`<div id="html_8b5a68416e14fc415d437de8d645609b" style="width: 100.0%; height: 100.0%;"><b>Ketonggo</b><br>Elevasi: 37.48 mdpl</div>`)[0];
+                popup_e309211d7b58b5fb4c4e081f27200225.setContent(html_8b5a68416e14fc415d437de8d645609b);
+            
+        
+
+        circle_marker_8ef542323c4403968afef34bef5a36a0.bindPopup(popup_e309211d7b58b5fb4c4e081f27200225)
+        ;
+
+        
+    
+    
+            circle_marker_8ef542323c4403968afef34bef5a36a0.bindTooltip(
+                `<div>
+                     Ketonggo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d40d25a2dc7cb7332a363665c74f99ec = L.circleMarker(
+                [-7.86520004, 111.4479],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d0ff2fff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_11bda84cfafd6bc8444ffe1898ff63da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9377aa2d43de1d5b3522dcab57003803 = $(`<div id="html_9377aa2d43de1d5b3522dcab57003803" style="width: 100.0%; height: 100.0%;"><b>Sekayu</b><br>Elevasi: 87.27 mdpl</div>`)[0];
+                popup_11bda84cfafd6bc8444ffe1898ff63da.setContent(html_9377aa2d43de1d5b3522dcab57003803);
+            
+        
+
+        circle_marker_d40d25a2dc7cb7332a363665c74f99ec.bindPopup(popup_11bda84cfafd6bc8444ffe1898ff63da)
+        ;
+
+        
+    
+    
+            circle_marker_d40d25a2dc7cb7332a363665c74f99ec.bindTooltip(
+                `<div>
+                     Sekayu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a833a790dc5c319212daf5d2022b9c90 = L.circleMarker(
+                [-7.1483, 111.5986],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0058ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_96253090eae1281c70066518e7cab60c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_348d7e19894bf4b16e9d1cdf3c07237c = $(`<div id="html_348d7e19894bf4b16e9d1cdf3c07237c" style="width: 100.0%; height: 100.0%;"><b>Cepu</b><br>Elevasi: 17.53 mdpl</div>`)[0];
+                popup_96253090eae1281c70066518e7cab60c.setContent(html_348d7e19894bf4b16e9d1cdf3c07237c);
+            
+        
+
+        circle_marker_a833a790dc5c319212daf5d2022b9c90.bindPopup(popup_96253090eae1281c70066518e7cab60c)
+        ;
+
+        
+    
+    
+            circle_marker_a833a790dc5c319212daf5d2022b9c90.bindTooltip(
+                `<div>
+                     Cepu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_627edea99841e949155b63b809294d8a = L.circleMarker(
+                [-6.9896, 112.3688],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0005ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_2a5e78e6364974adb0425f2f77111234 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e86082aeea186e093f3839af69cb3040 = $(`<div id="html_e86082aeea186e093f3839af69cb3040" style="width: 100.0%; height: 100.0%;"><b>Karanggeneng</b><br>Elevasi: 2.17 mdpl</div>`)[0];
+                popup_2a5e78e6364974adb0425f2f77111234.setContent(html_e86082aeea186e093f3839af69cb3040);
+            
+        
+
+        circle_marker_627edea99841e949155b63b809294d8a.bindPopup(popup_2a5e78e6364974adb0425f2f77111234)
+        ;
+
+        
+    
+    
+            circle_marker_627edea99841e949155b63b809294d8a.bindTooltip(
+                `<div>
+                     Karanggeneng
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_90df711f0eda4e6f4248ffa9884e39b3 = L.marker(
+                [-7.13680318, 111.89776287],
+                {
+}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            var icon_e82cb6d11c81b3e4cb6b652cab7a8692 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_daaf15f1c7bf26bad1894a4c370b7baf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c9594b34cb5a2cbf9deb643e3c1f637 = $(`<div id="html_6c9594b34cb5a2cbf9deb643e3c1f637" style="width: 100.0%; height: 100.0%;"><div style='width:200px'><b>🚨 Bojonegoro - Kali Kethek 🚨</b><br>Elevasi: <b>9.06 mdpl</b><br><br>Ini adalah titik temu aliran dari pos-pos hulu sebelum menuju laut. Elevasinya sangat rendah, sehingga rentan fluktuasi pasang surut laut dan penumpukan debit dari hulu!</div></div>`)[0];
+                popup_daaf15f1c7bf26bad1894a4c370b7baf.setContent(html_6c9594b34cb5a2cbf9deb643e3c1f637);
+            
+        
+
+        marker_90df711f0eda4e6f4248ffa9884e39b3.bindPopup(popup_daaf15f1c7bf26bad1894a4c370b7baf)
+        ;
+
+        
+    
+    
+            marker_90df711f0eda4e6f4248ffa9884e39b3.bindTooltip(
+                `<div>
+                     TARGET: Bojonegoro - Kali Kethek
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_90df711f0eda4e6f4248ffa9884e39b3.setIcon(icon_e82cb6d11c81b3e4cb6b652cab7a8692);
+            
+    
+            var circle_db32980048d9de9580100bf687d9eb46 = L.circle(
+                [-7.13680318, 111.89776287],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+            var circle_marker_9532b3c39402d520bddb262dd9f3ea90 = L.circleMarker(
+                [-7.8849, 111.3275],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7200ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_95910b4eb6618b77481b7683f6589cec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e37a7b5e5796975f0816f4edbf7f303 = $(`<div id="html_2e37a7b5e5796975f0816f4edbf7f303" style="width: 100.0%; height: 100.0%;"><b>Badegan</b><br>Elevasi: 122.40 mdpl</div>`)[0];
+                popup_95910b4eb6618b77481b7683f6589cec.setContent(html_2e37a7b5e5796975f0816f4edbf7f303);
+            
+        
+
+        circle_marker_9532b3c39402d520bddb262dd9f3ea90.bindPopup(popup_95910b4eb6618b77481b7683f6589cec)
+        ;
+
+        
+    
+    
+            circle_marker_9532b3c39402d520bddb262dd9f3ea90.bindTooltip(
+                `<div>
+                     Badegan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4570232090f79c9f9d5a2dd585e65bfc = L.circleMarker(
+                [-8.196982, 111.341354],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#003fffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_7e821268e6bc089b842e60b65e958bf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7945258e9b5281872ca0569c0172075c = $(`<div id="html_7945258e9b5281872ca0569c0172075c" style="width: 100.0%; height: 100.0%;"><b>Lorog</b><br>Elevasi: 12.86 mdpl</div>`)[0];
+                popup_7e821268e6bc089b842e60b65e958bf3.setContent(html_7945258e9b5281872ca0569c0172075c);
+            
+        
+
+        circle_marker_4570232090f79c9f9d5a2dd585e65bfc.bindPopup(popup_7e821268e6bc089b842e60b65e958bf3)
+        ;
+
+        
+    
+    
+            circle_marker_4570232090f79c9f9d5a2dd585e65bfc.bindTooltip(
+                `<div>
+                     Lorog
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1578b21c83c8525535b05c920f2d93cd = L.circleMarker(
+                [-7.838796329, 110.9254908],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff3c00ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_d86c1c61386bbd7fada56cb024a3f149 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d0358aa58c58225f09f7998a7dc7334 = $(`<div id="html_9d0358aa58c58225f09f7998a7dc7334" style="width: 100.0%; height: 100.0%;"><b>Wonogiri Dam</b><br>Elevasi: 132.34 mdpl</div>`)[0];
+                popup_d86c1c61386bbd7fada56cb024a3f149.setContent(html_9d0358aa58c58225f09f7998a7dc7334);
+            
+        
+
+        circle_marker_1578b21c83c8525535b05c920f2d93cd.bindPopup(popup_d86c1c61386bbd7fada56cb024a3f149)
+        ;
+
+        
+    
+    
+            circle_marker_1578b21c83c8525535b05c920f2d93cd.bindTooltip(
+                `<div>
+                     Wonogiri Dam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_484fb967ea3d0f5bb3a07f2ecbe70323 = L.circleMarker(
+                [-7.365744, 111.235721],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0dfff2ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_eebd88d574bceae916f0d0e2f99c7c61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4b77a2fdcc45dcc9249181643e559c30 = $(`<div id="html_4b77a2fdcc45dcc9249181643e559c30" style="width: 100.0%; height: 100.0%;"><b>Kajangan</b><br>Elevasi: 51.04 mdpl</div>`)[0];
+                popup_eebd88d574bceae916f0d0e2f99c7c61.setContent(html_4b77a2fdcc45dcc9249181643e559c30);
+            
+        
+
+        circle_marker_484fb967ea3d0f5bb3a07f2ecbe70323.bindPopup(popup_eebd88d574bceae916f0d0e2f99c7c61)
+        ;
+
+        
+    
+    
+            circle_marker_484fb967ea3d0f5bb3a07f2ecbe70323.bindTooltip(
+                `<div>
+                     Kajangan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1fa7b4bacf0c8c3b6e870fa078dc0b4 = L.circleMarker(
+                [-7.2504, 112.5623],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0010ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_6d682c2db9899902ba52221271ac5e11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e580a2d8177a1c3917297403153c214a = $(`<div id="html_e580a2d8177a1c3917297403153c214a" style="width: 100.0%; height: 100.0%;"><b>Boboh Kali Lamong</b><br>Elevasi: 4.11 mdpl</div>`)[0];
+                popup_6d682c2db9899902ba52221271ac5e11.setContent(html_e580a2d8177a1c3917297403153c214a);
+            
+        
+
+        circle_marker_c1fa7b4bacf0c8c3b6e870fa078dc0b4.bindPopup(popup_6d682c2db9899902ba52221271ac5e11)
+        ;
+
+        
+    
+    
+            circle_marker_c1fa7b4bacf0c8c3b6e870fa078dc0b4.bindTooltip(
+                `<div>
+                     Boboh Kali Lamong
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81d819457877411bb1b5b67c12b48879 = L.circleMarker(
+                [-7.553596, 110.833859],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ccff33ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_8bb3cfa76ac2270aace564f58994b7bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02687e42ec9fd4ca0a5a4dbf7db396ed = $(`<div id="html_02687e42ec9fd4ca0a5a4dbf7db396ed" style="width: 100.0%; height: 100.0%;"><b>Kali Anyar - Kreteg Abang</b><br>Elevasi: 86.46 mdpl</div>`)[0];
+                popup_8bb3cfa76ac2270aace564f58994b7bb.setContent(html_02687e42ec9fd4ca0a5a4dbf7db396ed);
+            
+        
+
+        circle_marker_81d819457877411bb1b5b67c12b48879.bindPopup(popup_8bb3cfa76ac2270aace564f58994b7bb)
+        ;
+
+        
+    
+    
+            circle_marker_81d819457877411bb1b5b67c12b48879.bindTooltip(
+                `<div>
+                     Kali Anyar - Kreteg Abang
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5fc9eb0b2ca566b4e256f433f9f09c60 = L.circleMarker(
+                [-7.751307, 110.901425],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc000ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_65425f938ae194c06efba671dc53e2f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4f08ea8e0eb2b25aee5a5f964a9bdc2c = $(`<div id="html_4f08ea8e0eb2b25aee5a5f964a9bdc2c" style="width: 100.0%; height: 100.0%;"><b>Colo Weir</b><br>Elevasi: 107.79 mdpl</div>`)[0];
+                popup_65425f938ae194c06efba671dc53e2f2.setContent(html_4f08ea8e0eb2b25aee5a5f964a9bdc2c);
+            
+        
+
+        circle_marker_5fc9eb0b2ca566b4e256f433f9f09c60.bindPopup(popup_65425f938ae194c06efba671dc53e2f2)
+        ;
+
+        
+    
+    
+            circle_marker_5fc9eb0b2ca566b4e256f433f9f09c60.bindTooltip(
+                `<div>
+                     Colo Weir
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f26a66dea60992f29ed05a891ac67a5 = L.circleMarker(
+                [-7.876715, 110.991808],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_efad3555bddf27bfe6c79b4fdbfff17b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58c105ad79a3d18ec062947b106e86e3 = $(`<div id="html_58c105ad79a3d18ec062947b106e86e3" style="width: 100.0%; height: 100.0%;"><b>Ngadipiro</b><br>Elevasi: 143.56 mdpl</div>`)[0];
+                popup_efad3555bddf27bfe6c79b4fdbfff17b.setContent(html_58c105ad79a3d18ec062947b106e86e3);
+            
+        
+
+        circle_marker_5f26a66dea60992f29ed05a891ac67a5.bindPopup(popup_efad3555bddf27bfe6c79b4fdbfff17b)
+        ;
+
+        
+    
+    
+            circle_marker_5f26a66dea60992f29ed05a891ac67a5.bindTooltip(
+                `<div>
+                     Ngadipiro
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_515e2ff5ab62cace9085ed26ddbbe496 = L.circleMarker(
+                [-7.2659, 112.5016],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#002effff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_3425fca387018d55ea47892e0654cbd0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_693a9bf7eb9b306cda633225571c2ad4 = $(`<div id="html_693a9bf7eb9b306cda633225571c2ad4" style="width: 100.0%; height: 100.0%;"><b>Bengkelolor</b><br>Elevasi: 9.81 mdpl</div>`)[0];
+                popup_3425fca387018d55ea47892e0654cbd0.setContent(html_693a9bf7eb9b306cda633225571c2ad4);
+            
+        
+
+        circle_marker_515e2ff5ab62cace9085ed26ddbbe496.bindPopup(popup_3425fca387018d55ea47892e0654cbd0)
+        ;
+
+        
+    
+    
+            circle_marker_515e2ff5ab62cace9085ed26ddbbe496.bindTooltip(
+                `<div>
+                     Bengkelolor
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32f25bdcebda773a59a6e5adacdb2027 = L.circleMarker(
+                [-8.0244, 110.948],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff1200ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_11ff8f4b98975259fff81dc3089fc66c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_71307d7a2b4d3442ff7303109d05ca8e = $(`<div id="html_71307d7a2b4d3442ff7303109d05ca8e" style="width: 100.0%; height: 100.0%;"><b>Ngrembang</b><br>Elevasi: 140.05 mdpl</div>`)[0];
+                popup_11ff8f4b98975259fff81dc3089fc66c.setContent(html_71307d7a2b4d3442ff7303109d05ca8e);
+            
+        
+
+        circle_marker_32f25bdcebda773a59a6e5adacdb2027.bindPopup(popup_11ff8f4b98975259fff81dc3089fc66c)
+        ;
+
+        
+    
+    
+            circle_marker_32f25bdcebda773a59a6e5adacdb2027.bindTooltip(
+                `<div>
+                     Ngrembang
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e2aaddecaeb079a190f6fc944e17d0c = L.circleMarker(
+                [-7.25358903, 111.48798163],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0074ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_a88d1b2cb486bd0de7b3da372a47443b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a5f652bf025e5442f3448f3f03a4fa4 = $(`<div id="html_8a5f652bf025e5442f3448f3f03a4fa4" style="width: 100.0%; height: 100.0%;"><b>Karangnongko</b><br>Elevasi: 22.69 mdpl</div>`)[0];
+                popup_a88d1b2cb486bd0de7b3da372a47443b.setContent(html_8a5f652bf025e5442f3448f3f03a4fa4);
+            
+        
+
+        circle_marker_6e2aaddecaeb079a190f6fc944e17d0c.bindPopup(popup_a88d1b2cb486bd0de7b3da372a47443b)
+        ;
+
+        
+    
+    
+            circle_marker_6e2aaddecaeb079a190f6fc944e17d0c.bindTooltip(
+                `<div>
+                     Karangnongko
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3d0142acdc799cb2838974877f91924 = L.circleMarker(
+                [-7.530054, 110.793742],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f9ff06ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_e13699b68bbd0605016e5ee498cd7b0a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d7dc805e2bac1e8399a7e4cfd11a5bd = $(`<div id="html_1d7dc805e2bac1e8399a7e4cfd11a5bd" style="width: 100.0%; height: 100.0%;"><b>Kali Pepe - Tugu Boto</b><br>Elevasi: 94.82 mdpl</div>`)[0];
+                popup_e13699b68bbd0605016e5ee498cd7b0a.setContent(html_1d7dc805e2bac1e8399a7e4cfd11a5bd);
+            
+        
+
+        circle_marker_b3d0142acdc799cb2838974877f91924.bindPopup(popup_e13699b68bbd0605016e5ee498cd7b0a)
+        ;
+
+        
+    
+    
+            circle_marker_b3d0142acdc799cb2838974877f91924.bindTooltip(
+                `<div>
+                     Kali Pepe - Tugu Boto
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0d5beafc727f2b7a7286b2e8eef2fd9 = L.circleMarker(
+                [-7.373851, 111.005016],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#57ffa8ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_52bf0b272ced5f880c15cb53ebe683a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53cdfcccbb651c98b42625218dfcaa8f = $(`<div id="html_53cdfcccbb651c98b42625218dfcaa8f" style="width: 100.0%; height: 100.0%;"><b>Kedungupit</b><br>Elevasi: 64.87 mdpl</div>`)[0];
+                popup_52bf0b272ced5f880c15cb53ebe683a6.setContent(html_53cdfcccbb651c98b42625218dfcaa8f);
+            
+        
+
+        circle_marker_f0d5beafc727f2b7a7286b2e8eef2fd9.bindPopup(popup_52bf0b272ced5f880c15cb53ebe683a6)
+        ;
+
+        
+    
+    
+            circle_marker_f0d5beafc727f2b7a7286b2e8eef2fd9.bindTooltip(
+                `<div>
+                     Kedungupit
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_307ba715675dfe5ae8ea26a9d63eafbe = L.circleMarker(
+                [-7.0847, 111.8492],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#003fffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_02c7293553422062df5189cd72f16b0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5006a1215b3b09a55afb98f79e44bbc7 = $(`<div id="html_5006a1215b3b09a55afb98f79e44bbc7" style="width: 100.0%; height: 100.0%;"><b>Brangkal</b><br>Elevasi: 12.95 mdpl</div>`)[0];
+                popup_02c7293553422062df5189cd72f16b0f.setContent(html_5006a1215b3b09a55afb98f79e44bbc7);
+            
+        
+
+        circle_marker_307ba715675dfe5ae8ea26a9d63eafbe.bindPopup(popup_02c7293553422062df5189cd72f16b0f)
+        ;
+
+        
+    
+    
+            circle_marker_307ba715675dfe5ae8ea26a9d63eafbe.bindTooltip(
+                `<div>
+                     Brangkal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd09a673c0fe068cb8f41275baaa1ec8 = L.circleMarker(
+                [-7.56637609940404, 110.830243130438],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b7ff48ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_bd50d9f7eabd1bdba4d37acb15b54b11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a6e44ae662cf53902ef8a5fbb387d46 = $(`<div id="html_9a6e44ae662cf53902ef8a5fbb387d46" style="width: 100.0%; height: 100.0%;"><b>Kali Pepe - PTPN</b><br>Elevasi: 82.55 mdpl</div>`)[0];
+                popup_bd50d9f7eabd1bdba4d37acb15b54b11.setContent(html_9a6e44ae662cf53902ef8a5fbb387d46);
+            
+        
+
+        circle_marker_dd09a673c0fe068cb8f41275baaa1ec8.bindPopup(popup_bd50d9f7eabd1bdba4d37acb15b54b11)
+        ;
+
+        
+    
+    
+            circle_marker_dd09a673c0fe068cb8f41275baaa1ec8.bindTooltip(
+                `<div>
+                     Kali Pepe - PTPN
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03af30db173521d968fc46de8cdd6c3b = L.circleMarker(
+                [-7.110837, 112.154488],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#001bffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_01caa8dcb96e3c085d0438c9a758d476 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e14338c7b583224eaf3037f1db449d6d = $(`<div id="html_e14338c7b583224eaf3037f1db449d6d" style="width: 100.0%; height: 100.0%;"><b>Babat</b><br>Elevasi: 6.31 mdpl</div>`)[0];
+                popup_01caa8dcb96e3c085d0438c9a758d476.setContent(html_e14338c7b583224eaf3037f1db449d6d);
+            
+        
+
+        circle_marker_03af30db173521d968fc46de8cdd6c3b.bindPopup(popup_01caa8dcb96e3c085d0438c9a758d476)
+        ;
+
+        
+    
+    
+            circle_marker_03af30db173521d968fc46de8cdd6c3b.bindTooltip(
+                `<div>
+                     Babat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_86142fa4d3c4afdc9812ede90d88a7ff = L.circleMarker(
+                [-7.376188, 111.464305],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00b2ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_b34dca9df3b82737140c6f4284ff4c27 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4eb9b98dd397dfd108a95b53d45c3749 = $(`<div id="html_4eb9b98dd397dfd108a95b53d45c3749" style="width: 100.0%; height: 100.0%;"><b>Napel</b><br>Elevasi: 34.21 mdpl</div>`)[0];
+                popup_b34dca9df3b82737140c6f4284ff4c27.setContent(html_4eb9b98dd397dfd108a95b53d45c3749);
+            
+        
+
+        circle_marker_86142fa4d3c4afdc9812ede90d88a7ff.bindPopup(popup_b34dca9df3b82737140c6f4284ff4c27)
+        ;
+
+        
+    
+    
+            circle_marker_86142fa4d3c4afdc9812ede90d88a7ff.bindTooltip(
+                `<div>
+                     Napel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7bbffbb5842e7322d807eaa808d6f96 = L.circleMarker(
+                [-7.641, 110.8448],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6ff19ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_269f5303014078f63cf5822ac1ceff08 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae4288ee206aa42bd1b0f107d509ba47 = $(`<div id="html_ae4288ee206aa42bd1b0f107d509ba47" style="width: 100.0%; height: 100.0%;"><b>Peren</b><br>Elevasi: 91.31 mdpl</div>`)[0];
+                popup_269f5303014078f63cf5822ac1ceff08.setContent(html_ae4288ee206aa42bd1b0f107d509ba47);
+            
+        
+
+        circle_marker_c7bbffbb5842e7322d807eaa808d6f96.bindPopup(popup_269f5303014078f63cf5822ac1ceff08)
+        ;
+
+        
+    
+    
+            circle_marker_c7bbffbb5842e7322d807eaa808d6f96.bindTooltip(
+                `<div>
+                     Peren
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34f488335450201795b417193b564557 = L.circleMarker(
+                [-7.5667, 110.861],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a2ff5dff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_31589fc7955fcfc1b281c98b17254547 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fb28ee52119049f29d066194e5565bbc = $(`<div id="html_fb28ee52119049f29d066194e5565bbc" style="width: 100.0%; height: 100.0%;"><b>Jurug</b><br>Elevasi: 78.82 mdpl</div>`)[0];
+                popup_31589fc7955fcfc1b281c98b17254547.setContent(html_fb28ee52119049f29d066194e5565bbc);
+            
+        
+
+        circle_marker_34f488335450201795b417193b564557.bindPopup(popup_31589fc7955fcfc1b281c98b17254547)
+        ;
+
+        
+    
+    
+            circle_marker_34f488335450201795b417193b564557.bindTooltip(
+                `<div>
+                     Jurug
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d940ad3269928d04cf6bc7b4c9bee25e = L.circleMarker(
+                [-7.7337, 110.7571],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e3ff1cff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_c7cb0c3e678708e98d02c4df04d5bf16 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b26814b00eda26cba7182a089b92b548 = $(`<div id="html_b26814b00eda26cba7182a089b92b548" style="width: 100.0%; height: 100.0%;"><b>Jarum</b><br>Elevasi: 90.72 mdpl</div>`)[0];
+                popup_c7cb0c3e678708e98d02c4df04d5bf16.setContent(html_b26814b00eda26cba7182a089b92b548);
+            
+        
+
+        circle_marker_d940ad3269928d04cf6bc7b4c9bee25e.bindPopup(popup_c7cb0c3e678708e98d02c4df04d5bf16)
+        ;
+
+        
+    
+    
+            circle_marker_d940ad3269928d04cf6bc7b4c9bee25e.bindTooltip(
+                `<div>
+                     Jarum
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2307e893b57a04846b600ff8686057c = L.circleMarker(
+                [-8.137219, 111.137746],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0030ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_bb6795f2d984523c5390a602a2f3be64 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_92e25b844b525a26667cb899fc941925 = $(`<div id="html_92e25b844b525a26667cb899fc941925" style="width: 100.0%; height: 100.0%;"><b>Gunungsari</b><br>Elevasi: 10.04 mdpl</div>`)[0];
+                popup_bb6795f2d984523c5390a602a2f3be64.setContent(html_92e25b844b525a26667cb899fc941925);
+            
+        
+
+        circle_marker_b2307e893b57a04846b600ff8686057c.bindPopup(popup_bb6795f2d984523c5390a602a2f3be64)
+        ;
+
+        
+    
+    
+            circle_marker_b2307e893b57a04846b600ff8686057c.bindTooltip(
+                `<div>
+                     Gunungsari
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a471dc863b7fb0a1734ff2eebf21395b = L.circleMarker(
+                [-7.0672, 112.0177],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0022ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_d7d776465f9f34572fdce5bc69c28490 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b0d28e86a3b664e8367907e16ad68ce7 = $(`<div id="html_b0d28e86a3b664e8367907e16ad68ce7" style="width: 100.0%; height: 100.0%;"><b>Sumberrejo</b><br>Elevasi: 7.45 mdpl</div>`)[0];
+                popup_d7d776465f9f34572fdce5bc69c28490.setContent(html_b0d28e86a3b664e8367907e16ad68ce7);
+            
+        
+
+        circle_marker_a471dc863b7fb0a1734ff2eebf21395b.bindPopup(popup_d7d776465f9f34572fdce5bc69c28490)
+        ;
+
+        
+    
+    
+            circle_marker_a471dc863b7fb0a1734ff2eebf21395b.bindTooltip(
+                `<div>
+                     Sumberrejo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a68a61f13ca249104a6e5a201d14b18 = L.circleMarker(
+                [-6.964196, 112.276556],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#000effff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_800bc6055739b0dfdb567164db328ce1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6941a309f40a004cb200994b6dc83362 = $(`<div id="html_6941a309f40a004cb200994b6dc83362" style="width: 100.0%; height: 100.0%;"><b>Floodway Bridge C</b><br>Elevasi: 3.87 mdpl</div>`)[0];
+                popup_800bc6055739b0dfdb567164db328ce1.setContent(html_6941a309f40a004cb200994b6dc83362);
+            
+        
+
+        circle_marker_2a68a61f13ca249104a6e5a201d14b18.bindPopup(popup_800bc6055739b0dfdb567164db328ce1)
+        ;
+
+        
+    
+    
+            circle_marker_2a68a61f13ca249104a6e5a201d14b18.bindTooltip(
+                `<div>
+                     Floodway Bridge C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a09875af3bb9208ceaa5e728596aaf5 = L.circleMarker(
+                [-8.19756104, 111.11431399],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0000ffff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_2def210b47e46aa46ee218a6e7f53e26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ebd08473c43d1a14b2b7bdafa04a38f2 = $(`<div id="html_ebd08473c43d1a14b2b7bdafa04a38f2" style="width: 100.0%; height: 100.0%;"><b>Arjowinangun - Pacitan</b><br>Elevasi: 1.12 mdpl</div>`)[0];
+                popup_2def210b47e46aa46ee218a6e7f53e26.setContent(html_ebd08473c43d1a14b2b7bdafa04a38f2);
+            
+        
+
+        circle_marker_0a09875af3bb9208ceaa5e728596aaf5.bindPopup(popup_2def210b47e46aa46ee218a6e7f53e26)
+        ;
+
+        
+    
+    
+            circle_marker_0a09875af3bb9208ceaa5e728596aaf5.bindTooltip(
+                `<div>
+                     Arjowinangun - Pacitan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b01f4d6047ad8c449c48cc96f78367ae = L.circleMarker(
+                [-7.6705, 110.78],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cbff34ff", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 1}
+            ).addTo(map_d155da003f96939c39acb2da009dce12);
+        
+    
+        var popup_9eeb7a2fcff4e44497324036db7e25e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14e89f011f397188f2e9205b7568e45c = $(`<div id="html_14e89f011f397188f2e9205b7568e45c" style="width: 100.0%; height: 100.0%;"><b>Serenan</b><br>Elevasi: 86.32 mdpl</div>`)[0];
+                popup_9eeb7a2fcff4e44497324036db7e25e2.setContent(html_14e89f011f397188f2e9205b7568e45c);
+            
+        
+
+        circle_marker_b01f4d6047ad8c449c48cc96f78367ae.bindPopup(popup_9eeb7a2fcff4e44497324036db7e25e2)
+        ;
+
+        
+    
+    
+            circle_marker_b01f4d6047ad8c449c48cc96f78367ae.bindTooltip(
+                `<div>
+                     Serenan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
